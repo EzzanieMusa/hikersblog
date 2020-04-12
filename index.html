@@ -3,12 +3,13 @@
 
   <head>
     <title>Hikers</title>
+    
+    <link rel="canonical" href="https://ezzaniemusa.github.io/hikersblog/" />
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Muli:400,700" rel="stylesheet">
-    
-    <link rel="manifest" href="/hikersblog/manifest.json" />
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
@@ -25,19 +26,21 @@
 
   </head>
   
- <link rel="apple-touch-icon" sizes="57x57" href="/hikersblog/images/icon/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/hikersblog/images/icon/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/hikersblog/images/icon/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/hikersblog/images/icon/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/hikersblog/images/icon/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/hikersblog/images/icon/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/hikersblog/images/icon/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/hikersblog/images/icon/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/hikersblog/images/icon/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="images/icon/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/hikersblog/images/icon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/hikersblog/images/icon/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/hikersblog/images/icon/favicon-16x16.png">
+  <link rel="manifest" href="/hikersblog/manifest.json" />
+  
+ <link rel="apple-touch-icon" sizes="57x57" href="/hikersblog/images/icon/apple-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/hikersblog/images/icon/apple-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/hikersblog/images/icon/apple-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/hikersblog/images/icon/apple-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/hikersblog/images/icon/apple-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="/hikersblog/images/icon/apple-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/hikersblog/images/icon/apple-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/hikersblog/images/icon/apple-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/hikersblog/images/icon/apple-icon-180x180.png" />
+<link rel="icon" type="image/png" sizes="192x192"  href="images/icon/android-icon-192x192.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/hikersblog/images/icon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/hikersblog/images/icon/favicon-96x96.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/hikersblog/images/icon/favicon-16x16.png" />
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="images/icon/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
@@ -45,16 +48,13 @@
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
     
     <script>
-    if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker
-      .register("/serviceWorker.js")
-      .then(res => console.log("service worker registered"))
-      .catch(err => console.log("service worker not registered", err))
-  })
-}
-    </script>
-
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('serviceWorker.js', {scope: '/hikersblog/'})
+    
+    .then((reg) => console.log('service worker registered', reg))
+    .catch((err) => console.log('service worker not registered', err));
+  }
+  </script>
     
     <div class="site-wrap" id="home-section">
 
