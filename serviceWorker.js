@@ -4,6 +4,7 @@ var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [
   '/hikersblog/',
   '/hikersblog/index.html',
+  '/hikersblog/about.html',
 ]
 
 self.addEventListener('fetch', function (e) {
