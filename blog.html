@@ -2,13 +2,15 @@
 <html lang="en">
 
   <head>
-    <title>Capture &mdash; Website Template by Colorlib</title>
+    <title>Hikers Blog</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Muli:400,700|Hepta+Slab:400,700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
+    
+    <link rel="canonical" href="https://ezzaniemusa.github.io/hikersblog/" />
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
@@ -17,6 +19,8 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
     <link rel="stylesheet" href="css/aos.css">
+    
+    <link rel="manifest" href="/hikersblog/manifest.json" />
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -24,7 +28,15 @@
   </head>
 
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
+  
+   <script>
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('serviceWorker.js', {scope: '/hikersblog/'})
+    
+    .then((reg) => console.log('service worker registered', reg))
+    .catch((err) => console.log('service worker not registered', err));
+  }
+  </script>
     
     <div class="site-wrap" id="home-section">
 
