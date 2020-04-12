@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Muli:400,700" rel="stylesheet">
+    
+    <link rel="canonical" href="https://ezzaniemusa.github.io/hikersblog/" />
+
+    <link rel="manifest" href="/hikersblog/manifest.json" />
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
@@ -24,7 +28,15 @@
   </head>
 
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
+  
+    <script>
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('serviceWorker.js', {scope: '/hikersblog/'})
+    
+    .then((reg) => console.log('service worker registered', reg))
+    .catch((err) => console.log('service worker not registered', err));
+  }
+  </script>
     
     <div class="site-wrap" id="home-section">
 
