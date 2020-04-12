@@ -43,6 +43,17 @@
 <meta name="theme-color" content="#ffffff">
 
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+    
+    <script>
+    if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker
+      .register("/serviceWorker.js")
+      .then(res => console.log("service worker registered"))
+      .catch(err => console.log("service worker not registered", err))
+  })
+}
+    </script>
 
     
     <div class="site-wrap" id="home-section">
