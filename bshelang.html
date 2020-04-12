@@ -28,15 +28,6 @@
   </head>
 
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
-    <script>
-  if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('serviceWorker.js', {scope: '/hikersblog/'})
-    
-    .then((reg) => console.log('service worker registered', reg))
-    .catch((err) => console.log('service worker not registered', err));
-  }
-  </script>
     
     <div class="site-wrap" id="home-section">
 
@@ -167,6 +158,15 @@
     <script src="js/aos.js"></script>
 
     <script src="js/main.js"></script>
+    
+    <script>
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('serviceWorker.js', {scope: '/hikersblog/'})
+    
+    .then((reg) => console.log('service worker registered', reg))
+    .catch((err) => console.log('service worker not registered', err));
+  }
+  </script>
 
   </body>
 
