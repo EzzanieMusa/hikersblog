@@ -1,9 +1,8 @@
-const staticHikersblog = "hikersblog-v1"
+const staticDevHikers = "dev-Hikersblog-v1"
 const assets = [
   "/",
   "/hikersblog/index.html",
   "/hikersblog/css/style.css",
-  "/hikersblogs/js/app.js",
   "/hikersblog/images/1.jpg",
   "/hikersblog/images/2.jpg",
   "/hikersblog/images/3.jpg",
