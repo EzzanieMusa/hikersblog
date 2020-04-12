@@ -4,6 +4,12 @@ var CACHE_NAME = APP_PREFIX + VERSION
 var URLS = [
   '/hikersblog/',
   '/hikersblog/index.html',
+  '/hikersblog/about.html',
+  '/hikersblog/blog.html',
+  '/hikersblog/bshelang.html',
+  '/hikersblog/bsipatir.html',
+  '/hikersblog/contact.html',
+  '/hikersblog/journal.html',
 ]
 
 self.addEventListener('fetch', function (e) {
