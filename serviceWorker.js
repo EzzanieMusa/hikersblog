@@ -1,39 +1,56 @@
-const staticDevHikers = "dev-Hikersblog-v1"
-const assets = [
-  "/",
-  "/hikersblog/index.html",
-  "/hikersblog/css/style.css",
-  "/hikersblog/images/1.jpg",
-  "/hikersblog/images/2.jpg",
-  "/hikersblog/images/3.jpg",
-  "/hikersblog/images/4.jpg",
-  "/hikersblog/images/5.jpg",
-  "/hikersblog/images/6.jpg",
-  "/hikersblog/images/blog.jpg",
-  "/hikersblog/images/boots.jpg",
-  "/hikersblog/images/bshelang.jpg",
-  "/hikersblog/images/bshelang2.jpg",
-  "/hikersblog/images/bshelang3.jpg",
-  "/hikersblog/images/bshelang4.jpg",
-  "/hikersblog/images/bsipatir.jpg",
-  "/hikersblog/images/bsipatir1.jpg",
-  "/hikersblog/images/bsipatir2.jpg",
-  "/hikersblog/images/bsipatir3.jpg",
-  "/hikersblog/images/index.jpg",
+var APP_PREFIX = 'hikersblog'
+var VERSION = 'version_01'
+var CACHE_NAME = APP_PREFIX + VERSION
+var URLS = [
+  '/hikersblog/',
+  '/hikersblog/index.html',
+  '/hikersblog/about.html',
+  '/hikersblog/blog.html',
+  '/hikersblog/bshelang.html',
+  '/hikersblog/bsipatir.html',
+  '/hikersblog/contact.html',
+  '/hikersblog/journal.html,
 ]
 
-self.addEventListener("install", installEvent => {
-  installEvent.waitUntil(
-    caches.open(staticHikersblog).then(cache => {
-      cache.addAll(assets)
+self.addEventListener('fetch', function (e) {
+  console.log('fetch request : ' + e.request.url)
+  e.respondWith(
+    caches.match(e.request).then(function (request) {
+      if (request) {
+        console.log('responding with cache : ' + e.request.url)
+        return request
+      } else {
+        console.log('file is not cached, fetching : ' + e.request.url)
+        return fetch(e.request)
+      }
     })
   )
 })
 
-self.addEventListener("fetch", fetchEvent => {
-  fetchEvent.respondWith(
-    caches.match(fetchEvent.request).then(res => {
-      return res || fetch(fetchEvent.request)
+self.addEventListener('install', function (e) {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then(function (cache) {
+      console.log('installing cache : ' + CACHE_NAME)
+      return cache.addAll(URLS)
+    })
+  )
+})
+
+self.addEventListener('activate', function (e) {
+  e.waitUntil(
+    caches.keys().then(function (keyList) {
+      var cacheWhitelist = keyList.filter(function (key) {
+        return key.indexOf(APP_PREFIX)
+      })
+      
+      cacheWhitelist.push(CACHE_NAME)
+
+      return Promise.all(keyList.map(function (key, i) {
+        if (cacheWhitelist.indexOf(key) === -1) {
+          console.log('deleting cache : ' + keyList[i] )
+          return caches.delete(keyList[i])
+        }
+      }))
     })
   )
 })
